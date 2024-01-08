@@ -1,0 +1,23 @@
+<div class="container">
+  <div class="title">Add Todo Task</div>
+  <form [formGroup]="createForm" (ngSubmit)="onCreateDone()">
+    <div class="wrapper">
+      <label for="title">Title</label>
+      <input id="title" type="text" formControlName="title" />
+    </div>
+    <div class="wrapper">
+      <label for="author">Author</label>
+      <input id="author" type="text" formControlName="author" />
+    </div>
+    <div class="wrapper">
+      <label for="content">Content</label>
+      <textarea id="content" formControlName="content"></textarea>
+    </div>
+    <div class="button-container">
+      <button type="submit" class="edit" [disabled]="!createForm.valid">
+        Create
+      </button>
+      <button class="cancel" (click)="onCreateCancel()">Cancel</button>
+    </div>
+  </form>
+</div>

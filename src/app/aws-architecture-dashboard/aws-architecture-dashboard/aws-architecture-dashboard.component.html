@@ -1,0 +1,13 @@
+<header>
+  <div><a [routerLink]="['..', 'main']">AWS Architecture</a></div>
+</header>
+
+<div class="container">
+  <ul class="sidebar">
+    <li><a [routerLink]="['frontend']">frontend</a></li>
+    <li><a [routerLink]="['backend']">backend</a></li>
+  </ul>
+  <div class="main">
+    <router-outlet></router-outlet>
+  </div>
+</div>

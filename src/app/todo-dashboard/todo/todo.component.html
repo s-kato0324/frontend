@@ -1,0 +1,14 @@
+<div class="container">
+  <div class="title">Title: {{ todo.title }}</div>
+  <div
+    [ngSwitch]="todo.status"
+    class="status"
+    [ngStyle]="{ 'background-color': getColor(todo.status) }"
+  >
+    <span *ngSwitchCase="0">未着手</span>
+    <span *ngSwitchCase="1">進行中</span>
+    <span *ngSwitchCase="2">完了</span>
+    <span *ngSwitchCase="3">保留</span>
+    <span *ngSwitchCase="4">取消</span>
+  </div>
+</div>

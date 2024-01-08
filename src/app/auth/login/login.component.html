@@ -1,0 +1,67 @@
+<span
+  *ngIf="errorMessage"
+  class="m-4 p-4 rounded-xl bg-red-300 text-red-500 text-center"
+>
+  {{ errorMessage }}
+</span>
+<div class="container">
+  <h1 class="text-2xl">LOG IN</h1>
+  <form [formGroup]="loginForm" (ngSubmit)="login()">
+    <div class="valid-input">
+      <input
+        type="text"
+        id="username"
+        formControlName="username"
+        placeholder="username"
+      />
+      <div
+        [appErrorMessage]="getUsernameErrorMessage"
+        [ngClass]="{ 'error-icon': getUsernameInValid }"
+      ></div>
+      <div class="errorMessage">
+        <div [ngClass]="{ 'error-icon': getUsernameInValid }">
+          <span *ngIf="loginForm.get('loginId')?.errors?.['required']">
+            This field is required
+          </span>
+          <span *ngIf="loginForm.get('loginId')?.errors?.['maxlength']">
+            Please enter no more than 64 characters.
+          </span>
+        </div>
+      </div>
+    </div>
+    <div class="valid-input">
+      <input
+        type="password"
+        id="password"
+        formControlName="password"
+        placeholder="password"
+      />
+      <div
+        [appErrorMessage]="getPasswordErrorMessage"
+        [ngClass]="{ 'error-icon': getPasswordInValid }"
+      ></div>
+      <div class="errorMessage">
+        <div
+          *ngIf="
+            !loginForm.get('password')?.valid &&
+            loginForm.get('password')?.touched
+          "
+        >
+          <span *ngIf="loginForm.get('password')?.errors?.['required']">
+            This field is required
+          </span>
+          <span *ngIf="loginForm.get('password')?.errors?.['maxlength']">
+            Please enter no more than 64 characters.
+          </span>
+        </div>
+      </div>
+    </div>
+    <button
+      type="submit"
+      [ngStyle]="{ cursor: loginForm.invalid ? 'not-allowed' : 'pointer' }"
+      [disabled]="loginForm.invalid"
+    >
+      LOGIN
+    </button>
+  </form>
+</div>

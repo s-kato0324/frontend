@@ -1,0 +1,37 @@
+<div class="container">
+  <div class="title">双方向バインディング</div>
+  <div
+    class="h-20 text-4xl text-center"
+    [ngStyle]="{
+      'background-color': getBackGroundColor(),
+    }"
+  >
+    This is the current background color
+  </div>
+  <div class="flex items-center">
+    <div>
+      <div class="flex items-center">
+        <label for="red">Red: </label>
+        <input id="red" type="range" min="0" max="255" [(ngModel)]="red" />
+      </div>
+      <div class="flex items-center">
+        <label for="green">Green: </label>
+        <input id="green" type="range" min="0" max="255" [(ngModel)]="green" />
+      </div>
+      <div class="flex items-center">
+        <label for="blue">Blue: </label>
+        <input id="blue" type="range" min="0" max="255" [(ngModel)]="blue" />
+      </div>
+    </div>
+    <div class="ml-4 text-3xl flex items-center">
+      <div>RGB: ( {{ red }}, {{ green }}, {{ blue }} )</div>
+      <i class="bx bxs-copy ml-2 mt-1" (click)="onCopy()"></i>
+      <p
+        *ngIf="isCopyed"
+        class="-translate-x-14 -translate-y-7 text-base h-auto pl-2 pr-2 rounded-lg bg-[#d4ffe5] text-[#36b167] after:content-['✓'] after:text-[#36b167] after:text-base"
+      >
+        copyed!
+      </p>
+    </div>
+  </div>
+</div>

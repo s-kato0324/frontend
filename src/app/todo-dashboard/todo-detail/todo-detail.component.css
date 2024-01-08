@@ -1,0 +1,51 @@
+.container {
+  margin-top: 40px;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.status-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px;
+}
+
+.status-title {
+  padding-right: 10px;
+  font-weight: bold;
+}
+
+.status {
+  border-radius: 20px;
+  height: auto;
+  padding: 5px 8px;
+  margin: auto 0;
+  color: white;
+  font-size: 0.9rem;
+}
+
+.content {
+  border: 1px solid black;
+  border-radius: 10px;
+  height: 20rem;
+  margin-top: 70px;
+  padding: 10px;
+}
+
+button {
+  border: 1px black solid;
+  border-radius: 10px;
+  margin: 10px 20px 0 0;
+  padding: 2px 5px;
+}

@@ -1,0 +1,35 @@
+<div class="container">
+  <div class="top">
+    <div class="title">{{ todo?.title }}</div>
+    <div class="status-content">
+      <div class="status-title">status:</div>
+      <div
+        [ngSwitch]="todo?.status"
+        class="status"
+        [ngStyle]="{ 'background-color': getColor(todo?.status) }"
+      >
+        <span *ngSwitchCase="0">未着手</span>
+        <span *ngSwitchCase="1">進行中</span>
+        <span *ngSwitchCase="2">完了</span>
+        <span *ngSwitchCase="3">保留</span>
+        <span *ngSwitchCase="4">取消</span>
+      </div>
+    </div>
+  </div>
+
+  <div>created by: {{ todo?.author }}</div>
+  <div class="content">Content: {{ todo?.content }}</div>
+
+  <lib-sk-primary-button
+    class="m-5"
+    type="submit"
+    [title]="'Edit'"
+    (click)="onEdit()"
+  ></lib-sk-primary-button>
+  <lib-sk-danger-button
+    class="m-5"
+    [title]="'Delete'"
+    (click)="onDelete()"
+  ></lib-sk-danger-button>
+</div>
+<router-outlet></router-outlet>

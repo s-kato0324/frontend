@@ -1,0 +1,20 @@
+version: 0.2
+
+phases:
+  install:
+    on-failure: ABORT
+    runtime-versions:
+      nodejs: 18.x
+  pre_build:
+    on-failure: ABORT
+    commands:
+      - npm i -g @angular/cli
+      - npm install
+  build:
+    on-failure: ABORT
+    commands:
+      - ng build
+  post_build:
+    commands:
+      - aws s3 cp dist/ s3://sk-cloudformation-cloudfront-origin-bucket/ --recursive
+      - aws cloudfront create-invalidation --distribution-id ${DISTRIBUTION_ID} --paths "/*"

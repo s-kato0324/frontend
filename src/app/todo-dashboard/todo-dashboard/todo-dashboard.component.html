@@ -1,0 +1,34 @@
+<div class="title"><a [routerLink]="['/main']">Todo</a></div>
+<div id="todo-dashboard">
+  <div class="container">
+    <div class="side-container">
+      <div class="pagination">
+        <select [(ngModel)]="limit" (ngModelChange)="updateLimit($event)">
+          <option [value]="5">5</option>
+          <option [value]="10">10</option>
+          <option [value]="20">20</option>
+          <option [value]="50">50</option>
+          <option [value]="100">100</option>
+        </select>
+        <div class="page-select">
+          <span
+            class="page-index"
+            *ngFor="let i of getPagesCountList()"
+            (click)="getCurrentPage(i)"
+            >{{ i }}</span
+          >
+        </div>
+      </div>
+      <div class="list-container">
+        <app-todo-list [currentTodoList]="currentTodoList"></app-todo-list>
+      </div>
+    </div>
+    <div class="main-container">
+      <div class="todo-create" (click)="onCreate()">
+        <img src="../../../assets/todo/todo-create.svg" />
+        <p>Add Todo</p>
+      </div>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

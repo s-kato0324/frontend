@@ -1,0 +1,77 @@
+.container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  border: 1px solid black;
+  border-radius: 10px;
+  width: 40%;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  transform: translate(-50%, -90%);
+}
+
+.container h1 {
+  padding-bottom: 30px;
+}
+
+form {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.valid-input {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  width: 400px;
+  padding: 0 20px 40px 20px;
+}
+
+input {
+  height: 50px;
+  width: 95%;
+  border: none;
+  border-bottom: 1px solid green;
+  font-size: 15px;
+  font-weight: bold;
+}
+
+input:focus {
+  outline: none;
+}
+
+input.ng-touched.ng-invalid {
+  border: none;
+  border-botom: 1px solid #ff0033;
+}
+
+.error-icon {
+  background-image: url("../../../assets/form/notification.svg");
+  background-repeat: no-repeat;
+  transform: scale(0.7);
+  width: 10%;
+  height: 100%;
+  font-size: 2rem;
+  position: absolute;
+  right: 30px;
+  top: 5%;
+  /* background-color: green; */
+}
+
+.errorMessage {
+  color: #ff0033;
+  font-size: 1.5rem;
+  white-space: nowrap;
+  text-indent: 40px;
+}
+
+button {
+  margin-top: 40px;
+  width: 150px;
+  height: 40px;
+  border-radius: 20px;
+}
